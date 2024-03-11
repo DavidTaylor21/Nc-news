@@ -1,17 +1,20 @@
-import { fetchArticleById } from "../Api";
+import { fetchArticleById , fetchCommentsByArticle} from "../Api";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Loading from "./Loading";
 import SingleArticleCard from "./SingleArticleCard";
+import CommentsList from "./CommentsList"
+import HomeButton from "./HomeButton";
 function Article() {
   const { article_id } = useParams();
   const [currentArticle, setCurrentArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [currentComments, setCurrentComments] = useState([])
   useEffect(() => {
-    fetchArticleById(article_id).then((article) => {
-      setIsLoading(true);
-      setCurrentArticle(article);
+    setIsLoading(true);
+    Promise.all([fetchArticleById(article_id), fetchCommentsByArticle(article_id)]).then((results) => {
+      setCurrentArticle(results[0]);
+      setCurrentComments(results[1])
       setIsLoading(false);
     });
   }, []);
@@ -19,13 +22,11 @@ function Article() {
     return <Loading />;
   } else {
     return (
-      <>
+      <section className="single-article-page">
         <SingleArticleCard currentArticle={currentArticle} />
-        <Link to={`/`}>
-          <label htmlFor="home"></label>
-          <button id="home">take me home</button>
-        </Link>
-      </>
+        <CommentsList currentComments={currentComments}/>
+        <HomeButton/>
+      </section>
     );
   }
 }
