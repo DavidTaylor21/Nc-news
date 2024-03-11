@@ -9,4 +9,9 @@ function fetchAllArticles(){
         return response.data.articles
     })
 }
-export {fetchAllArticles}
+function fetchArticleById(article_id){
+    return api.get(`articles/${article_id}`).then((response) => {
+        return response.data.article
+    })
+}
+export {fetchAllArticles, fetchArticleById}

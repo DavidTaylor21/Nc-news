@@ -7,10 +7,9 @@
   margin-left:auto;
   margin-right:auto;
   margin-bottom: 20px;
-  font-size: 1.5vw;
+  font-size: 14px;
   width: 80%;
   border-bottom: solid;
-  justify-content: center;
 }
 
 ul {
@@ -19,7 +18,7 @@ ul {
 .logo {
   color: blueviolet;
   text-align: center;
-  font-size: 5em;
+  font-size: 3em;
   font-weight: bolder;
 }
 .article-list {
@@ -27,6 +26,7 @@ ul {
   padding: 3px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .article-card p {
   text-align: left;
@@ -49,4 +49,12 @@ ul {
   max-height: 60%;
   display: block;
   padding: 5px;
+}
+#single-item-image{
+    max-width: 60%;
+  max-height: 60%;
+}
+
+.single-article p{
+padding:5px
 }
