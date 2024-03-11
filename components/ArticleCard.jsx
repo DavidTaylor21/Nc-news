@@ -2,13 +2,13 @@ function ArticleCard({ article }) {
     const date = new Date(article.created_at).toUTCString()
   return (
     <section key={article.article_id} className="article-card">
-      <h1>{article.title}</h1>
-      <p>{article.topic}</p>
-      <img src= {article.article_img_url}/>
-      <p>Written by {article.author}</p>
-      <p>Posted {date}</p>
-      <p>Votes: {article.votes}</p>
-      <p>Comments: {article.total_count}</p>
+      <h1 id="article-header">{article.title}</h1>
+      <p id="article-topic">{article.topic}</p>
+      <img src= {article.article_img_url} id="article-photo"/>
+      <p id="article-author">Written by {article.author}</p>
+      <p id="article-date">Posted {date}</p>
+      <p id="article-votes">Votes: {article.votes}</p>
+      <p id="article-comment-count">Comments: {article.total_count}</p>
     </section>
   );
 }
