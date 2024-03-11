@@ -11,7 +11,7 @@ function ArticleCard({ article }) {
       <p id="article-author">Written by {article.author}</p>
       <p id="article-date">Posted {date}</p>
       <p id="article-votes">Votes: {article.votes}</p>
-      <p id="article-comment-count">Comments: {article.total_count}</p>
+      <p id="article-comment-count">Comments: {article.comment_count}</p>
     </section>
   );
 }

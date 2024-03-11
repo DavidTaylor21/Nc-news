@@ -14,4 +14,9 @@ function fetchArticleById(article_id){
         return response.data.article
     })
 }
-export {fetchAllArticles, fetchArticleById}
+function fetchCommentsByArticle(article_id){
+    return api.get(`articles/${article_id}/comments`).then((response)=>{
+        return response.data.comments
+    })
+}
+export {fetchAllArticles, fetchArticleById, fetchCommentsByArticle}
