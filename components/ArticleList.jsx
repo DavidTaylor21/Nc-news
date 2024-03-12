@@ -2,6 +2,8 @@ import { fetchAllArticles } from "../Api";
 import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
 import Loading from "./Loading";
+import UsersButton from "../components/UsersButton"
+import Users from "./Users";
 function ArticleList() {
   const [allArticles, setAllArticles] = useState([]);
   const [isLoading, setIsLoading] = useState([true]);
@@ -24,6 +26,7 @@ function ArticleList() {
             })}
           </li>
         </ul>
+        <UsersButton/>
       </>
     );
   }
