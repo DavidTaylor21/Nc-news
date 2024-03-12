@@ -85,3 +85,7 @@ ul {
 #comments-header {
   text-decoration: underline;
 }
+.voteButton {
+  height: 20px;
+  width: 20px;
+}

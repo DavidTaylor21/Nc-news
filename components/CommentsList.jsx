@@ -6,7 +6,7 @@ function CommentsList({ currentComments }) {
       <ul className="comments-list">
         <li>
             {currentComments.map((comment)=>{
-                return <CommentCard comment={comment}/>
+                return <CommentCard comment={comment} key={comment.comment_id}/>
             })}
         </li>
       </ul>

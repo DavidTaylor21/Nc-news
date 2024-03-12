@@ -19,4 +19,10 @@ function fetchCommentsByArticle(article_id){
         return response.data.comments
     })
 }
-export {fetchAllArticles, fetchArticleById, fetchCommentsByArticle}
+function patchVotesOnArticle(article_id, incNum){
+    const body = {inc_votes: incNum}
+    return api.patch(`articles/${article_id}`, body).then((response)=>{
+        return response.data.updatedArticle
+    })
+}
+export {fetchAllArticles, fetchArticleById, fetchCommentsByArticle, patchVotesOnArticle}
