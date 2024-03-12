@@ -4,25 +4,27 @@ import { postComment } from "../Api";
 function CommentAdder({ setCurrentComments, article_id }) {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
   const [commentInput, setCommentInput] = useState("");
+  const [err, setErr] = useState(null);
+  const [isPosting, setIsPosting] = useState(false);
   function handleSubmit(event) {
     event.preventDefault();
+    setIsPosting(true);
+    setErr(null);
     const body = {
       username: loggedInUser.username,
       body: commentInput,
     };
-    setCurrentComments((currComments) => {
-      const newCommentBody = {
-        body: commentInput,
-        author: loggedInUser.username,
-        votes: 0,
-        comment_id: currComments.length + 1,
-      };
-      postComment(article_id, body).catch((err) => {
-        return currComments;
+    setCommentInput("");
+    postComment(article_id, body)
+      .then((comment) => {
+        setIsPosting(false);
+        setCurrentComments((currComments) => {
+          return [comment, ...currComments];
+        });
+      })
+      .catch((err) => {
+        setErr(err);
       });
-      setCommentInput("");
-      return [newCommentBody, ...currComments];
-    });
   }
   function handleInput(event) {
     setCommentInput(event.target.value);
@@ -39,13 +41,15 @@ function CommentAdder({ setCurrentComments, article_id }) {
           value={commentInput}
           onChange={handleInput}
           required
-          rows="5"
-          cols="60"
+          rows="3"
+          cols="40"
         ></textarea>
         <button type="submit" id="comment-submit">
           post
         </button>
       </form>
+      <p>{err ? "Unable to post comment, please try again" : null}</p>
+      <p>{isPosting? "Posting comment, please wait..." : null}</p>
     </>
   );
 }

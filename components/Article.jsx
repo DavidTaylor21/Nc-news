@@ -31,7 +31,7 @@ function Article() {
         setCurrentComments={setCurrentComments}
         article_id={article_id}
       />
-      <CommentsList currentComments={currentComments} />
+      <CommentsList currentComments={currentComments} setCurrentComments={setCurrentComments} />
       <HomeButton />
     </section>
   );

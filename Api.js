@@ -30,10 +30,15 @@ function fetchUsers() {
     return response.data.users;
   });
 }
-function postComment(article_id, body){
-  return api.post(`articles/${article_id}/comments`, body).then((response)=>{
-    return response.data.comment
-  })
+function postComment(article_id, body) {
+  return api.post(`articles/${article_id}/comments`, body).then((response) => {
+    return response.data.comment;
+  });
+}
+function deleteComment(comment_id) {
+  return api.delete(`comments/${comment_id}`).then((response) => {
+    return response.data;
+  });
 }
 export {
   fetchAllArticles,
@@ -41,5 +46,6 @@ export {
   fetchCommentsByArticle,
   patchVotesOnArticle,
   fetchUsers,
-  postComment
+  postComment,
+  deleteComment,
 };
