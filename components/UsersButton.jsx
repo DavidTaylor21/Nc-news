@@ -3,7 +3,7 @@ function UsersButton(){
     return (
         <Link to={`/users`}>
           <label htmlFor="change-user"></label>
-          <button id="change-user">change user</button>
+          <button id="change-user">Users</button>
         </Link>
       );
 }

@@ -3,7 +3,7 @@ function HomeButton() {
   return (
     <Link to={`/`}>
       <label htmlFor="home"></label>
-      <button id="home">take me home</button>
+      <button id="home">Home</button>
     </Link>
   );
 }

@@ -21,6 +21,7 @@ ul {
   text-align: center;
   font-size: 3em;
   font-weight: bolder;
+  margin-top: 90px;
 }
 .article-list {
   width: 100%;
@@ -94,21 +95,31 @@ ul {
 }
 #home {
   position: fixed;
-  bottom: 5px;
-  left:35%;
-  right:35%;
+  top: 5px;
+  left:41%;
+  right:41%;
   background-color: whitesmoke;
   border-radius: 10px;
-  padding:1%
+  padding:1%;
+  margin-top: 1%;
+}
+#topics-button{
+  position: fixed;
+  top: 5px;
+  left:20%;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding:1%;
+  margin-top: 1%;
 }
 #change-user{
   position: fixed;
-  bottom: 5px;
-  left:35%;
-  right:35%;
+  top: 5px;
+  right:20%;
   background-color: whitesmoke;
   border-radius: 10px;
-  padding:1%
+  padding:1%;
+  margin-top: 1%;
 }
 #avatar-image{
   height:40%;

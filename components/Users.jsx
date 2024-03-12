@@ -2,7 +2,6 @@ import { fetchUsers } from "../Api";
 import { useEffect, useState } from "react";
 import UserCard from "./UserCard";
 import Loading from "./Loading";
-import HomeButton from "./HomeButton";
 function Users() {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -24,7 +23,6 @@ function Users() {
           return <UserCard user={user} />;
         })}
       </div>
-      <HomeButton />
     </>
   );
 }
