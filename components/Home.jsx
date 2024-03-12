@@ -1,9 +1,10 @@
-import ArticleList from "./ArticleList"
-function Home(){
-    return (
-        <>
-            <ArticleList/>
-        </>
-    )
+import ArticleList from "./ArticleList";
+
+function Home() {
+  return (
+    <>
+      <ArticleList />
+    </>
+  );
 }
-export default Home
+export default Home;

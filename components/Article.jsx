@@ -5,12 +5,12 @@ import Loading from "./Loading";
 import SingleArticleCard from "./SingleArticleCard";
 import CommentsList from "./CommentsList";
 import HomeButton from "./HomeButton";
+import CommentAdder from "./CommentAdder";
 function Article() {
   const { article_id } = useParams();
   const [currentArticle, setCurrentArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [currentComments, setCurrentComments] = useState([]);
-
   useEffect(() => {
     setIsLoading(true);
     Promise.all([
@@ -27,6 +27,10 @@ function Article() {
   ) : (
     <section className="single-article-page">
       <SingleArticleCard currentArticle={currentArticle} />
+      <CommentAdder
+        setCurrentComments={setCurrentComments}
+        article_id={article_id}
+      />
       <CommentsList currentComments={currentComments} />
       <HomeButton />
     </section>

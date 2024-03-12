@@ -6,6 +6,7 @@ function VoteButton({ setVotes, votes, article_id }) {
     setVotes((currVotes) => {
       const incNum = parseInt(event.target.id);
       patchVotesOnArticle(article_id, incNum).catch((err) => {
+        setVotes(votes)
         setErr("Something went wrong, please try again.");
       });
       setErr(null)
@@ -16,7 +17,6 @@ function VoteButton({ setVotes, votes, article_id }) {
     <div>
       <p>Votes: {votes}</p>
       {err ? <p>{err}</p> : null}
-      <label htmlFor="upVote"> Up vote:
       <button>
         <img
           src="../images/thumbs-up.png"
@@ -26,8 +26,6 @@ function VoteButton({ setVotes, votes, article_id }) {
           onClick={handleVote}
         />
       </button>
-      </label>
-      <label htmlFor="downVote"> Down vote:
       <button>
         <img
           src="../images/thumbs-down.png"
@@ -37,7 +35,6 @@ function VoteButton({ setVotes, votes, article_id }) {
           onClick={handleVote}
         />
       </button>
-      </label>
     </div>
   );
 }
