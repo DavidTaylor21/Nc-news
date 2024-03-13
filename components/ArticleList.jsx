@@ -1,19 +1,20 @@
 import { fetchAllArticles } from "../Api";
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import ArticleCard from "./ArticleCard";
 import Loading from "./Loading";
-import UsersButton from "../components/UsersButton"
-import Users from "./Users";
+import { useSearchParams } from "react-router-dom";
 function ArticleList() {
   const [allArticles, setAllArticles] = useState([]);
   const [isLoading, setIsLoading] = useState([true]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sortByQuery = searchParams.get("topic");
   useEffect(() => {
     setIsLoading(true);
-    fetchAllArticles().then((articles) => {
+    fetchAllArticles(sortByQuery).then((articles) => {
       setAllArticles(articles);
       setIsLoading(false);
     });
-  }, []);
+  }, [searchParams]);
   if (isLoading) {
     return <Loading />;
   } else {
@@ -26,7 +27,6 @@ function ArticleList() {
             })}
           </li>
         </ul>
-        <UsersButton/>
       </>
     );
   }
