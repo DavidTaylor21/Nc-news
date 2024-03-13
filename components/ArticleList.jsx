@@ -4,7 +4,6 @@ import ArticleCard from "./ArticleCard";
 import Loading from "./Loading";
 import { useSearchParams } from "react-router-dom";
 function ArticleList() {
-  console.log()
   const [allArticles, setAllArticles] = useState([]);
   const [isLoading, setIsLoading] = useState([true]);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -15,7 +14,7 @@ function ArticleList() {
       setAllArticles(articles);
       setIsLoading(false);
     });
-  }, []);
+  }, [searchParams]);
   if (isLoading) {
     return <Loading />;
   } else {
