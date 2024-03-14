@@ -4,16 +4,17 @@ const api = axios.create({
   baseURL: "https://nc-news-a2p3.onrender.com/api/",
 });
 
-function fetchAllArticles(topicQuery) {
-  if (topicQuery) {
-    return api.get(`articles?topic=${topicQuery}`).then((response) => {
-      return response.data.articles;
-    });
-  } else {
-    return api.get("articles").then((response) => {
-      return response.data.articles;
-    });
+function fetchAllArticles(topic = "", sortBy, order) {
+  let urlString = `articles?topic=${topic}`
+  if(sortBy){
+    urlString+= `&sort_by=${sortBy}`
   }
+  if(order){
+    urlString += `&order=${order}`
+  }
+  return api.get(urlString).then((response) => {
+    return response.data.articles;
+  });
 }
 function fetchArticleById(article_id) {
   return api.get(`articles/${article_id}`).then((response) => {
