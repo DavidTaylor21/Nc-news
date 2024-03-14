@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Loading from "./Loading";
 import SingleArticleCard from "./SingleArticleCard";
 import CommentsList from "./CommentsList";
-import HomeButton from "./HomeButton";
 import CommentAdder from "./CommentAdder";
 function Article() {
   const { article_id } = useParams();
@@ -32,7 +31,6 @@ function Article() {
         article_id={article_id}
       />
       <CommentsList currentComments={currentComments} setCurrentComments={setCurrentComments} />
-      <HomeButton />
     </section>
   );
 }

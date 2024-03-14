@@ -1,25 +1,43 @@
 import { fetchAllArticles } from "../Api";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
 import Loading from "./Loading";
-import { useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import SortByFilter from "./SortByFilter";
 function ArticleList() {
   const [allArticles, setAllArticles] = useState([]);
   const [isLoading, setIsLoading] = useState([true]);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const sortByQuery = searchParams.get("topic");
+  const [sortBy, setSortBy] = useState("");
+  const [order, setOrder] = useState("");
+  const { topic } = useParams();
   useEffect(() => {
     setIsLoading(true);
-    fetchAllArticles(sortByQuery).then((articles) => {
+    fetchAllArticles(topic, sortBy, order).then((articles) => {
       setAllArticles(articles);
       setIsLoading(false);
     });
-  }, [searchParams]);
+  }, [topic, order, sortBy]);
   if (isLoading) {
-    return <Loading />;
+    return (
+      <>
+        <SortByFilter
+          setOrder={setOrder}
+          setSortBy={setSortBy}
+          sortBy={sortBy}
+          order={order}
+        />
+        <Loading />
+      </>
+    );
   } else {
     return (
       <>
+        <SortByFilter
+          setOrder={setOrder}
+          setSortBy={setSortBy}
+          sortBy={sortBy}
+          order={order}
+        />
         <ul className="article-list">
           <li>
             {...allArticles.map((article) => {

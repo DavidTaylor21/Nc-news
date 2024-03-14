@@ -93,7 +93,7 @@ ul {
   height: 20px;
   width: 20px;
 }
-#home {
+#change-Home {
   position: fixed;
   top: 5px;
   left:41%;
@@ -103,7 +103,7 @@ ul {
   padding:1%;
   margin-top: 1%;
 }
-#topics-button{
+#change-Topics{
   position: fixed;
   top: 5px;
   left:20%;
@@ -112,7 +112,7 @@ ul {
   padding:1%;
   margin-top: 1%;
 }
-#change-user{
+#change-Users{
   position: fixed;
   top: 5px;
   right:20%;
@@ -164,4 +164,11 @@ ul {
 #comment-form{
   display:inline-block;
   box-sizing: border-box;
+}
+.sortby-filter{
+  padding-top:2%
+}
+.orderby-filter{
+  padding-top:3px;
+  margin-bottom: 1px;
 }
