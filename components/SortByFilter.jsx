@@ -10,7 +10,7 @@ function SortByFilter({ setOrder, setSortBy, sortBy, order }) {
     <>
       <section className="sortby-filter">
         <label htmlFor="sortBy">Sort by: </label>
-        <select name="sortBy" value={sortBy} onChange={handleChangeSortBy}>
+        <select name="sortBy" value={sortBy} id="drop-down" onChange={handleChangeSortBy}>
           <option value="">-- Please Select --</option>
           <option value="comment_count">Comment count</option>
           <option value="created_at">Date posted</option>

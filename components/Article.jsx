@@ -5,11 +5,13 @@ import Loading from "./Loading";
 import SingleArticleCard from "./SingleArticleCard";
 import CommentsList from "./CommentsList";
 import CommentAdder from "./CommentAdder";
+import ErrorPage from "./ErrorPage";
 function Article() {
   const { article_id } = useParams();
   const [currentArticle, setCurrentArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [currentComments, setCurrentComments] = useState([]);
+  const [error, setError] = useState(null)
   useEffect(() => {
     setIsLoading(true);
     Promise.all([
@@ -19,8 +21,14 @@ function Article() {
       setCurrentArticle(results[0]);
       setCurrentComments(results[1]);
       setIsLoading(false);
+    })
+    .catch((err)=>{
+      setError(err.response.data.msg)
     });
   }, []);
+  if(error){
+    return <ErrorPage message={error}/>
+  }
   return isLoading ? (
     <Loading />
   ) : (
