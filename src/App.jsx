@@ -1,6 +1,6 @@
 import "./App.css";
 import { Link } from "react-router-dom";
-import ArticleList from "../components/ArticleList"
+import ArticleList from "../components/ArticleList";
 import { Routes, Route } from "react-router-dom";
 import Article from "../components/Article";
 import Users from "../components/Users";
@@ -8,13 +8,14 @@ import { UserContext } from "../context/User";
 import { useContext } from "react";
 import TopicList from "../components/TopicList";
 import NavButton from "../components/NavButton";
+import ErrorPage from "../components/ErrorPage";
 function App() {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
   return (
     <>
-      <NavButton path={"Users"} />
-      <NavButton path={"Topics"} />
-      <NavButton path={"Home"} />
+        <NavButton path={"Users"} />
+        <NavButton path={"Topics"} />
+        <NavButton path={"Home"} />
       <h1 className="logo">NEWS!</h1>
       {loggedInUser.username ? (
         <h1 className="sign-in-header">
@@ -27,10 +28,11 @@ function App() {
       )}
       <Routes>
         <Route path="/" element={<ArticleList />} />
-        <Route path="/:topic" element={<ArticleList />} />
+        <Route path="/topics/:topic" element={<ArticleList />} />
         <Route path="/article/:article_id" element={<Article />} />
         <Route path="/users" element={<Users />} />
         <Route path="/topics" element={<TopicList />} />
+        <Route path="*" element={<ErrorPage/>} />
       </Routes>
     </>
   );
