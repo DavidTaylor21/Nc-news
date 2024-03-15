@@ -17,21 +17,21 @@ function VoteButton({ setVotes, votes, article_id }) {
     <div>
       <p>Votes: {votes}</p>
       {err ? <p>{err}</p> : null}
-      <button>
+      <button className="vote-button">
         <img
-          src="../images/thumbs-up.png"
-          alt="thumbs up"
-          id="1"
-          className="voteButton"
+          src="../public/images/thumbs-down.png"
+          alt="thumbs down"
+          id="-1"
+          className="voteImage"
           onClick={handleVote}
         />
       </button>
-      <button>
+      <button className="vote-button">
         <img
-          src="../images/thumbs-down.png"
-          alt="thumbs down"
-          id="-1"
-          className="voteButton"
+          src="../public/images/thumbs-up.png"
+          alt="thumbs up"
+          id="1"
+          className="voteImage"
           onClick={handleVote}
         />
       </button>
