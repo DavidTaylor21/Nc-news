@@ -90,10 +90,10 @@ function ArticleList() {
           Page {currentPage} of {totalPages}
         </p>
         <button onClick={changePage} id="previous-page" className="page-navigation-button">
-          Previous Page
+         Previous Page 
         </button>
         <button onClick={changePage} id="next-page" className="page-navigation-button">
-          Next Page
+          Next Page 
         </button>
       </>
     );
