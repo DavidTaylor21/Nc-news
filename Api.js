@@ -22,7 +22,7 @@ function fetchArticleById(article_id) {
   });
 }
 function fetchCommentsByArticle(article_id) {
-  return api.get(`articles/${article_id}/comments`).then((response) => {
+  return api.get(`articles/${article_id}/comments?limit=50`).then((response) => {
     return response.data.comments;
   });
 }

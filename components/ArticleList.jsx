@@ -1,5 +1,5 @@
 import { fetchAllArticles } from "../Api";
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import ArticleCard from "./ArticleCard";
 import Loading from "./Loading";
 import { useParams } from "react-router-dom";
@@ -12,24 +12,24 @@ function ArticleList() {
   const [order, setOrder] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
   const { topic } = useParams();
   useEffect(() => {
     setIsLoading(true);
-    setError(null)
+    setError(null);
     fetchAllArticles(topic, sortBy, order, currentPage)
       .then((articles) => {
         setTotalPages(Math.ceil(articles[0].total_count / 10));
         setAllArticles(articles);
         setIsLoading(false);
       })
-      .catch((err)=>{
-        setError(err.response.data.msg)
-      })
+      .catch((err) => {
+        setError(err.response.data.msg);
+      });
   }, [currentPage]);
   useEffect(() => {
     setIsLoading(true);
-    setError(null)
+    setError(null);
     if (currentPage !== 1) {
       setCurrentPage(1);
     }
@@ -39,9 +39,9 @@ function ArticleList() {
         setAllArticles(articles);
         setIsLoading(false);
       })
-      .catch((err)=>{
-        setError(err.response.data.msg)
-      })
+      .catch((err) => {
+        setError(err.response.data.msg);
+      });
   }, [order, sortBy, topic]);
   function changePage(event) {
     if (event.target.id === "previous-page") {
@@ -54,8 +54,8 @@ function ArticleList() {
       }
     }
   }
-  if(error){
-    return <ErrorPage message ={error}/>
+  if (error) {
+    return <ErrorPage message={error} />;
   }
   if (isLoading) {
     return (
@@ -69,8 +69,7 @@ function ArticleList() {
         <Loading />
       </>
     );
-  } 
-  else {
+  } else {
     return (
       <>
         <SortByFilter
@@ -89,11 +88,19 @@ function ArticleList() {
         <p>
           Page {currentPage} of {totalPages}
         </p>
-        <button onClick={changePage} id="previous-page" className="page-navigation-button">
-         Previous Page 
+        <button
+          onClick={changePage}
+          id="previous-page"
+          className="page-navigation-button"
+        >
+          Previous Page
         </button>
-        <button onClick={changePage} id="next-page" className="page-navigation-button">
-          Next Page 
+        <button
+          onClick={changePage}
+          id="next-page"
+          className="page-navigation-button"
+        >
+          Next Page
         </button>
       </>
     );

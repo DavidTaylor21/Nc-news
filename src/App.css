@@ -51,6 +51,8 @@ ul {
   padding: 5px;
   margin-bottom: 10px;
   margin-top: 10px;
+  width: fit-content;
+  margin: auto;
 }
 #article-photo {
   max-width: 60%;
@@ -116,19 +118,19 @@ ul {
   align-items: center;
   position: fixed;
   width: 100%;
-  top:0px;
-  height:50px;
-  padding:auto;
-  margin:auto
+  top: 0px;
+  height: 50px;
+  padding: auto;
+  margin: auto;
 }
 #change-Home {
-  position:sticky;
+  position: sticky;
   background-color: white;
   border-radius: 10px;
   padding: 10%;
   transition: 0.2s;
   border: solid blueviolet 2px;
-  width:70px;
+  width: 70px;
   font-weight: bold;
 }
 #change-Home:hover {
@@ -136,13 +138,13 @@ ul {
   background-color: rgb(241, 241, 241);
 }
 #change-Topics {
-  position:sticky;
+  position: sticky;
   background-color: white;
   border-radius: 10px;
   padding: 10%;
   transition: 0.2s;
   border: solid blueviolet 2px;
-  width:70px;
+  width: 70px;
   font-weight: bold;
 }
 #change-Topics:hover {
@@ -150,13 +152,13 @@ ul {
   background-color: rgb(241, 241, 241);
 }
 #change-Users {
-  position:sticky;
+  position: sticky;
   background-color: white;
   border-radius: 10px;
   padding: 10%;
   transition: 0.2s;
   border: solid blueviolet 2px;
-  width:70px;
+  width: 70px;
   font-weight: bold;
 }
 #change-Users:hover {
@@ -207,33 +209,33 @@ ul {
   margin: auto;
   resize: none;
 }
-#comment-input:hover{
+#comment-input:hover {
   cursor: pointer;
 }
 #comment-submit {
   padding: 1%;
   width: auto;
-  border:solid blueviolet 2px;
+  border: solid blueviolet 2px;
   border-radius: 8px;
-  margin:auto;
+  margin: auto;
   font-size: medium;
   color: black;
 }
-#comment-submit:hover{
+#comment-submit:hover {
   background-color: rgb(241, 241, 241);
   cursor: pointer;
 }
 #comment-form {
   display: inline-block;
   box-sizing: border-box;
-  padding:1rem;
+  padding: 1rem;
   border-radius: 8px;
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   align-items: center;
   justify-content: center;
-  width:auto
+  width: auto;
 }
 .sortby-filter {
   padding-top: 2%;
@@ -247,7 +249,7 @@ ul {
   background-color: white;
   margin: auto;
   margin-top: 5px;
-  padding-bottom:2%;
+  padding-bottom: 2%;
   border-bottom: solid blueviolet 2px;
 }
 .page-navigation-button {
@@ -256,7 +258,7 @@ ul {
   border-radius: 5px;
   transition: 0.3s;
   width: 8rem;
-  height:2rem
+  height: 2rem;
 }
 .page-navigation-button:hover {
   background-color: rgb(241, 241, 241);
@@ -265,6 +267,6 @@ ul {
   position: sticky;
   top: 45px;
 }
-#current-user{
+#current-user {
   font-size: small;
 }
