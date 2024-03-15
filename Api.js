@@ -52,6 +52,12 @@ function fetchTopics() {
     return response.data.topics;
   });
 }
+function patchVotesOnComment(comment_id, incNum){
+  const body = { inc_votes: incNum };
+  return api.patch(`comments/${comment_id}`, body).then((response) => {
+    return response.data.updatedComment;
+  })
+}
 export {
   fetchAllArticles,
   fetchArticleById,
@@ -61,4 +67,5 @@ export {
   postComment,
   deleteComment,
   fetchTopics,
+  patchVotesOnComment
 };

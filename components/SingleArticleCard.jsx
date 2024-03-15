@@ -11,7 +11,7 @@ function SingleArticleCard({ currentArticle}) {
       <p id="single-article-body">{currentArticle.body}</p>
       <p>Written by {currentArticle.author}</p>
       <p>Posted {date}</p>
-      <VoteButton setVotes={setVotes} votes={votes} article_id={currentArticle.article_id} />
+      <VoteButton setVotes={setVotes} votes={votes} id={currentArticle} />
     </section>
   );
 }

@@ -1,15 +1,22 @@
-import { patchVotesOnArticle } from "../Api";
-import {useState} from 'react'
-function VoteButton({ setVotes, votes, article_id }) {
+import { patchVotesOnArticle, patchVotesOnComment } from "../Api";
+import { useState } from "react";
+function VoteButton({ setVotes, votes, id }) {
   const [err, setErr] = useState(null);
   function handleVote(event) {
     setVotes((currVotes) => {
       const incNum = parseInt(event.target.id);
-      patchVotesOnArticle(article_id, incNum).catch((err) => {
-        setVotes(votes)
-        setErr("Something went wrong, please try again.");
-      });
-      setErr(null)
+      if (id.comment_id) {
+        patchVotesOnComment(id.comment_id, incNum).catch((err) => {
+          setVotes(votes);
+          setErr("Something went wrong, please try again.");
+        });
+      } else if (id.article_id) {
+        patchVotesOnArticle(id.article_id, incNum).catch((err) => {
+          setVotes(votes);
+          setErr("Something went wrong, please try again.");
+        });
+      }
+      setErr(null);
       return currVotes + incNum;
     });
   }

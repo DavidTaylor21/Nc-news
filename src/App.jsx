@@ -5,12 +5,18 @@ import { Routes, Route } from "react-router-dom";
 import Article from "../components/Article";
 import Users from "../components/Users";
 import { UserContext } from "../context/User";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import TopicList from "../components/TopicList";
 import NavButton from "../components/NavButton";
 import ErrorPage from "../components/ErrorPage";
 function App() {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
+  useEffect(()=>{
+    const loggedUser = JSON.parse(localStorage.getItem("user"))
+    if(loggedUser){
+      setLoggedInUser(loggedUser)
+    }
+  }, [])
   return (
     <>
       <div className="header">
