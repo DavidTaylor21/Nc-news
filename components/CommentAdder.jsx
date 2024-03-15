@@ -43,9 +43,10 @@ function CommentAdder({ setCurrentComments, article_id }) {
           required
           rows="3"
           cols="40"
+          id="comment-input"
         ></textarea>
         <button type="submit" id="comment-submit">
-          post
+          Post
         </button>
       </form>
       <p>{err ? "Unable to post comment, please try again" : null}</p>

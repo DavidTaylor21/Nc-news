@@ -102,6 +102,8 @@ ul {
 }
 .vote-button {
   border-radius: 5px;
+  border: solid blueviolet;
+  margin: 5px;
 }
 .header {
   display: grid;
@@ -199,17 +201,39 @@ ul {
   background-color: rgb(241, 241, 241);
 }
 #comment-input {
-  width: 80px;
+  width: auto;
   height: 50px;
   border-radius: 5px;
+  margin: auto;
+  resize: none;
+}
+#comment-input:hover{
+  cursor: pointer;
 }
 #comment-submit {
   padding: 1%;
-  width: 50px;
+  width: auto;
+  border:solid blueviolet 2px;
+  border-radius: 8px;
+  margin:auto;
+  font-size: medium;
+  color: black;
+}
+#comment-submit:hover{
+  background-color: rgb(241, 241, 241);
+  cursor: pointer;
 }
 #comment-form {
   display: inline-block;
   box-sizing: border-box;
+  padding:1rem;
+  border-radius: 8px;
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  width:auto
 }
 .sortby-filter {
   padding-top: 2%;
