@@ -7,7 +7,7 @@ function SortByFilter({ setOrder, setSortBy, sortBy, order }) {
   }
 
   return (
-    <>
+    <div className="filters">
       <section className="sortby-filter">
         <label htmlFor="sortBy">Sort by: </label>
         <select name="sortBy" value={sortBy} id="drop-down" onChange={handleChangeSortBy}>
@@ -25,7 +25,7 @@ function SortByFilter({ setOrder, setSortBy, sortBy, order }) {
           <option value="DESC">Descending</option>
         </select>
       </section>
-    </>
+    </div>
   );
 }
 export default SortByFilter;

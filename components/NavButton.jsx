@@ -7,9 +7,9 @@ function NavButton({ path }) {
     link = path;
   }
   return (
-    <Link to={link}>
-      <button id={`change-${path}`}>{path}</button>
-    </Link>
+      <Link to={link}>
+        <button id={`change-${path}`}>{path}</button>
+      </Link>
   );
 }
 export default NavButton;

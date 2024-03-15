@@ -13,9 +13,11 @@ function App() {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
   return (
     <>
-        <NavButton path={"Users"} />
-        <NavButton path={"Topics"} />
-        <NavButton path={"Home"} />
+      <div className="header">
+        <NavButton path={"Topics"} id="Topics-grid" />
+        <NavButton path={"Home"} id="Home-grid" />
+        <NavButton path={"Users"} id="Users-grid" />
+      </div>
       <h1 className="logo">NEWS!</h1>
       {loggedInUser.username ? (
         <h1 className="sign-in-header">
@@ -32,7 +34,7 @@ function App() {
         <Route path="/article/:article_id" element={<Article />} />
         <Route path="/users" element={<Users />} />
         <Route path="/topics" element={<TopicList />} />
-        <Route path="*" element={<ErrorPage/>} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </>
   );

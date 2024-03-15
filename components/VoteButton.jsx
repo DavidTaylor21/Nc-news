@@ -19,7 +19,7 @@ function VoteButton({ setVotes, votes, article_id }) {
       {err ? <p>{err}</p> : null}
       <button className="vote-button">
         <img
-          src="../public/images/thumbs-down.png"
+          src="/images/thumbs-down.png"
           alt="thumbs down"
           id="-1"
           className="voteImage"
@@ -28,7 +28,7 @@ function VoteButton({ setVotes, votes, article_id }) {
       </button>
       <button className="vote-button">
         <img
-          src="../public/images/thumbs-up.png"
+          src="/images/thumbs-up.png"
           alt="thumbs up"
           id="1"
           className="voteImage"
