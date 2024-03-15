@@ -9,14 +9,15 @@ import { useContext, useEffect } from "react";
 import TopicList from "../components/TopicList";
 import NavButton from "../components/NavButton";
 import ErrorPage from "../components/ErrorPage";
+import ScrollToTop from "react-scroll-to-top";
 function App() {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
-  useEffect(()=>{
-    const loggedUser = JSON.parse(localStorage.getItem("user"))
-    if(loggedUser){
-      setLoggedInUser(loggedUser)
+  useEffect(() => {
+    const loggedUser = JSON.parse(localStorage.getItem("user"));
+    if (loggedUser) {
+      setLoggedInUser(loggedUser);
     }
-  }, [])
+  }, []);
   return (
     <>
       <div className="header">
@@ -42,6 +43,7 @@ function App() {
         <Route path="/topics" element={<TopicList />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <ScrollToTop smooth />
     </>
   );
 }
